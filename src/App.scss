@@ -1,0 +1,11 @@
+@import "style/variables.scss";
+
+#root,
+.App,
+.container {
+  height: 100%;
+}
+
+.container {
+  padding-top: $header-height;
+}

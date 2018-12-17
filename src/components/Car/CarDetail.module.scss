@@ -1,0 +1,83 @@
+@import 'style/variables.scss';
+@import 'style/helpers.scss';
+
+
+.component {
+  position: relative;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+.favorite {
+  position: absolute;
+  right: 20px;
+}
+
+
+.make {
+  @include LightBoldFont;
+  font-size: $label-size;
+}
+
+.model {
+  @include boldFont;
+  font-size: $title-size;
+  margin-top: 10px;
+}
+
+.mileage {
+  padding: 15px 0;
+  @include boldFont;
+  font-size: $label-size;
+  color: $brand-color;
+}
+
+.payment {
+  display: flex;
+  padding: 20px 0;
+  border-top: 1px solid $line-color;
+
+  .price {
+    @include LightBoldFont;
+    font-size: $big-price-size;
+    line-height: 1.2em;
+  }
+
+  .monthyPayment,
+  .startPayment {
+    flex: 1;
+
+    label {
+      @include LightBoldFont;
+      font-size: 1.2em;
+    }
+  }
+
+  .monthyPayment {
+    .price {
+      color: $brand-color;
+    }
+  }
+}
+
+.colorInfo {
+  display: flex;
+  padding: 15px 0;
+  border-top: 1px solid $line-color;
+
+  .exterior,
+  .interior {
+    flex: 1;
+
+    label {
+      color: $gray;
+    }
+
+    .color {
+      @include boldFont;
+      font-size: $feature-size;
+      line-height: 2em;
+    }
+  }
+}

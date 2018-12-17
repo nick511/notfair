@@ -1,0 +1,21 @@
+
+$offset: 10px;
+$icon-size: 30px;
+
+.slick-prev {
+  left: $offset;
+  width: $icon-size;
+  height: $icon-size;
+  z-index: 150;
+}
+
+.slick-next {
+  right: $offset;
+  width: $icon-size;
+  height: $icon-size;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: $icon-size;
+}

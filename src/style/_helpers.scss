@@ -1,0 +1,16 @@
+
+@mixin boldFont {
+  font-family: 'HelveticaNeue';
+}
+
+@mixin LightBoldFont {
+  font-family: 'HelveticaNeue-Light';
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

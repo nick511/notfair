@@ -1,0 +1,57 @@
+@import "style/variables.scss";
+@import '~normalize.css/normalize.css';
+@import '~font-awesome/css/font-awesome.min.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'HelveticaNeue1', 'HelveticaNeueThin', 'HelveticaNeue-Thin', 'Helvetica Neue Thin', 'HelveticaNeue', 'Helvetica Neue', 'HelveticaThin', 'Helvetica-Thin', 'Helvetica Thin', 'Helvetica';
+  font-size: $body-size;
+  line-height: 1.2em;
+  height: 100%;
+}
+
+a:link, a:visited {
+  color: $link-color;
+  text-decoration: none;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px;
+  background: $brand-color;
+  width: 170px;
+  border: 1px solid $brand-color;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  line-height: noßrmal;
+  transition: 0.2s;
+
+  &:hover {
+    background: white;
+  }
+
+  @at-root a#{&} {
+    color: white;
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}
+
+.favorite {
+  font-size: 25px;
+  color: $light-gray;
+  cursor: pointer;
+
+  &.favorited {
+    color: $brand-color;
+  }
+}
+
+

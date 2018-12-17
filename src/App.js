@@ -1,28 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import './style/base.scss'
+import './App.scss'
+import store from './state/store'
+import Header from './components/Header/Header'
+import Home from './containers/Home/Home'
+import CarDetailPage from './containers/CarDetailPage/CarDetailPage'
+import NotFound from './components/NotFound/NotFound'
 
-export default App;
+export const Routes = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/vehicles/:vin" component={CarDetailPage} />
+    <Route component={NotFound} />
+  </Switch>
+)
+
+const PageLayout = props => (
+  <div className="App">
+    <Header />
+    <main className="container">{props.children}</main>
+  </div>
+)
+
+const App = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <PageLayout>
+        <Routes />
+      </PageLayout>
+    </BrowserRouter>
+  </Provider>
+)
+
+export default App

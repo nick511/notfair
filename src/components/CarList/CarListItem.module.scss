@@ -1,0 +1,167 @@
+@import "style/variables.scss";
+@import "style/helpers.scss";
+
+
+.component {
+  display: flex;
+  @include clearfix;
+  padding: 25px;
+  border-bottom: 1px solid $section-line-color;
+}
+
+.image {
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+  height: 160px;
+
+  .favorite {
+    position: absolute;
+    left: 0px;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%,-50%);
+  }
+}
+
+.info {
+  width: 300px;
+  padding: 25px;
+  line-height: 1.3em;
+  text-align-last: left;
+  color: $light-gray;
+
+  .name {
+    margin-bottom: 10px;
+    color: $gray;
+    font-size: $label-size;
+  }
+
+  .infoItem {
+    float: left;
+    width: 50%;
+  }
+}
+
+.info2 {
+  flex: 1;
+
+  .priceChart {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    line-height: 1.4em;
+    $price-line-height: 60px;
+
+    .label {
+      font-size: $label-size;
+    }
+
+    .price {
+      color: $light-gray;
+    }
+
+    .minPrice,
+    .listPrice {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 85px;
+      height: $price-line-height;
+    }
+
+    .minPrice {
+      padding-right: 20px;
+      border-right: 1px solid $line-v-color;
+      text-align: right;
+    }
+
+    .listPrice {
+      padding-left: 20px;
+      border-left: 1px solid $line-v-color;
+      text-align: left;
+    }
+
+    .priceBar {
+      flex: 1;
+
+      .barBox {
+        position: relative;
+        margin: auto;
+        width: 90%;
+        $bar-height: 10px;
+        height: $bar-height;
+
+        .bar {
+          border-radius: $bar-height/2;
+          background-color: $light-gray;
+          overflow: hidden;
+
+          .colorBar {
+            height: $bar-height;
+            background-color: $brand-color;
+          }
+        }
+
+        .realPrice {
+          position: absolute;
+          bottom: -12px;
+          text-align: center;
+
+          .price,
+          .roundButton {
+            transform: translate(-50%);
+          }
+
+          .price {
+            color: inherit;
+          }
+
+          .line {
+            width: 1px;
+            height: 12px;
+            background-color: $brand-color;
+            margin-top: 5px;
+          }
+
+          .roundButton {
+            width: 35px;
+            height: 35px;
+            background-color: #EDEDED;
+            border-radius: 100%;
+            border: 1px solid #bbb;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        .fairMax {
+          position: absolute;
+          top: -($price-line-height - $bar-height)/2;
+          text-align: center;
+
+          .line {
+            width: 1px;
+            height: $price-line-height;
+            background-color: $line-v-color;
+          }
+
+          .offset {
+            transform: translate(-50%);
+            white-space: nowrap;
+          }
+        }
+
+      }
+    }
+
+  }
+}
+
+
+

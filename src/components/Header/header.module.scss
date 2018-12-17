@@ -1,0 +1,19 @@
+@import "style/variables.scss";
+
+.component {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  height: $header-height;
+  border-bottom: 1px solid #E5E5E5;
+  line-height: $header-height;
+  z-index: 9001;
+  -webkit-backface-visibility: hidden;
+}
+
+.title {
+  margin-left: 20px;
+  font-size: 25px;
+  color: $brand-color;
+  font-weight: bold;
+}
