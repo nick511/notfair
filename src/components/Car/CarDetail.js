@@ -16,6 +16,7 @@ export class CarDetail extends Component {
 
     return (
       <div className={styles.component}>
+        {/* Favorite icon */}
         <div
           className={cn(styles.favorite, 'favorite', {
             favorited: car.isFavorite,
@@ -25,14 +26,18 @@ export class CarDetail extends Component {
           <i className="fa fa-heart" />
         </div>
 
+        {/* Car make&model */}
         <div className={styles.make}>
           {car.model_year} {car.make}
         </div>
         <div className={styles.model}>
           {car.model} {car.trim}
         </div>
+
+        {/* Mileage */}
         <div className={styles.mileage}>{car.mileage.toLocaleString()} Mi.</div>
 
+        {/* Payment info */}
         {payment && (
           <div className={styles.payment}>
             <div className={styles.monthyPayment}>
@@ -50,6 +55,7 @@ export class CarDetail extends Component {
           </div>
         )}
 
+        {/* Color info */}
         <div className={styles.colorInfo}>
           <div className={styles.exterior}>
             <label>Exterior Color</label>

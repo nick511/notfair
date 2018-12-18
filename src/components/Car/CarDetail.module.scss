@@ -9,12 +9,13 @@
   background-color: white;
 }
 
+// Favorite icon
 .favorite {
   position: absolute;
   right: 20px;
 }
 
-
+// Car basic info
 .make {
   @include LightBoldFont;
   font-size: $label-size;
@@ -33,6 +34,7 @@
   color: $brand-color;
 }
 
+// Payment info
 .payment {
   display: flex;
   padding: 20px 0;
@@ -61,6 +63,7 @@
   }
 }
 
+// Color info
 .colorInfo {
   display: flex;
   padding: 15px 0;

@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import CarListItem from 'components/CarList/CarListItem'
+import styles from './CarList.module.scss'
 
 class CarList extends PureComponent {
   render() {
     const { cars, favoriteCarAction } = this.props
     return (
-      <div>
+      <div className={styles.component}>
         {Object.keys(cars).map(key => (
           <CarListItem
             key={key}
