@@ -2,10 +2,12 @@ import * as actions from '../actions/carsActions'
 import { _PENDING, _FULFILLED, _REJECTED } from 'utils/constants'
 
 const initialState = {
+  carIdList: [],
   cars: {},
   fetching: false,
   fetched: false,
   failed: false,
+  hasMore: true,
 }
 
 const carListReducer = (state = initialState, action) => {
@@ -24,22 +26,28 @@ const carListReducer = (state = initialState, action) => {
         fetching: false,
         fetched: false,
         failed: true,
+        hasMore: false,
       }
 
     case actions.FETCH_CAR_LIST + _FULFILLED:
-      const cars = action.payload.data.vehicles.reduce((cars, vehicle) => {
+      const cars = { ...state.cars }
+      const carIdList = [...state.carIdList]
+      const page = action.meta.page
+
+      action.payload.data.vehicles.forEach(vehicle => {
         vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
         cars[vehicle.id] = vehicle
-
-        return cars
-      }, {})
+        carIdList.push(vehicle.id)
+      })
 
       return {
         ...state,
+        carIdList,
         cars,
         fetching: false,
         fetched: true,
         failed: false,
+        hasMore: page < 10, // Fake total page here since API always return page 1
       }
 
     case actions.FAVORITE_CAR + _FULFILLED:

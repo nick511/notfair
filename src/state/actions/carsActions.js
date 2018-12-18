@@ -8,6 +8,7 @@ export const FAVORITE_CAR = 'FAVORITE_CAR'
 export const fetchCars = (page = 1) => ({
   type: FETCH_CAR_LIST,
   payload: apiFetch(ENDPOINT_VEHICLES.replace(':page', page)),
+  meta: { page },
 })
 
 export const fetchCar = (vin = '') => ({

@@ -8,16 +8,18 @@ import CarList from 'components/CarList/CarList'
 import './home.scss'
 
 class Home extends PureComponent {
-  componentDidMount = () => {
-    this.props.actions.fetchCars()
-  }
-
   render() {
-    const { carList, actions } = this.props
+    const { carList, cars, hasMore, actions } = this.props
     return (
       <div className="home">
         <ErrorBoundary>
-          <CarList cars={carList} favoriteCarAction={actions.favoriteCar} />
+          <CarList
+            carList={carList}
+            cars={cars}
+            hasMore={hasMore}
+            fetchCars={actions.fetchCars}
+            favoriteCarAction={actions.favoriteCar}
+          />
         </ErrorBoundary>
       </div>
     )
@@ -25,7 +27,11 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = state => {
-  return { carList: state.carList.cars }
+  return {
+    carList: state.carList.carIdList,
+    cars: state.carList.cars,
+    hasMore: state.carList.hasMore,
+  }
 }
 
 const mapDispatchToProps = dispatch => ({
