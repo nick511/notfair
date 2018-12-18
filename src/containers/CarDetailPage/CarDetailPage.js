@@ -2,11 +2,12 @@ import React, { PureComponent } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import styles from './CarDetailPage.module.scss'
 import * as actions from 'state/actions/carsActions'
+import ErrorBoundary from 'components/Utils/ErrorBoundary'
 import CarGallary from 'components/Car/CarGallary'
 import CarDetail from 'components/Car/CarDetail'
 import NotFound from 'components/NotFound/NotFound'
+import styles from './CarDetailPage.module.scss'
 
 export class CarDetailPage extends PureComponent {
   componentDidMount = () => {
@@ -22,8 +23,12 @@ export class CarDetailPage extends PureComponent {
 
     return (
       <div className={styles.component}>
-        <CarGallary images={car.image_location_list} />
-        <CarDetail car={car} favoriteCarAction={actions.favoriteCar} />
+        <ErrorBoundary>
+          <CarGallary images={car.image_location_list} />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CarDetail car={car} favoriteCarAction={actions.favoriteCar} />
+        </ErrorBoundary>
       </div>
     )
   }

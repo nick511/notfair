@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as actions from 'state/actions/carsActions'
+import ErrorBoundary from 'components/Utils/ErrorBoundary'
 import CarList from 'components/CarList/CarList'
 import './home.scss'
 
@@ -15,7 +16,9 @@ class Home extends PureComponent {
     const { carList, actions } = this.props
     return (
       <div className="home">
-        <CarList cars={carList} favoriteCarAction={actions.favoriteCar} />
+        <ErrorBoundary>
+          <CarList cars={carList} favoriteCarAction={actions.favoriteCar} />
+        </ErrorBoundary>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './PriceChart.module.scss'
 
@@ -52,6 +53,13 @@ function PriceChart({ realPrice, minPrice, listPrice, fairMaxPrice }) {
       </div>
     </div>
   )
+}
+
+PriceChart.propTypes = {
+  realPrice: PropTypes.number.isRequired,
+  minPrice: PropTypes.number.isRequired,
+  listPrice: PropTypes.number.isRequired,
+  fairMaxPrice: PropTypes.number.isRequired,
 }
 
 export default PriceChart

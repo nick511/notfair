@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
+import ErrorBoundary from 'components/Utils/ErrorBoundary'
 import CarListItem from 'components/CarList/CarListItem'
 import styles from './CarList.module.scss'
 
@@ -10,11 +11,12 @@ class CarList extends PureComponent {
     return (
       <div className={styles.component}>
         {Object.keys(cars).map(key => (
-          <CarListItem
-            key={key}
-            car={cars[key]}
-            favoriteCarAction={favoriteCarAction}
-          />
+          <ErrorBoundary key={key}>
+            <CarListItem
+              car={cars[key]}
+              favoriteCarAction={favoriteCarAction}
+            />
+          </ErrorBoundary>
         ))}
       </div>
     )

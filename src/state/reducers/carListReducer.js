@@ -29,8 +29,8 @@ const carListReducer = (state = initialState, action) => {
     case actions.FETCH_CAR_LIST + _FULFILLED:
       const cars = action.payload.data.vehicles.reduce((cars, vehicle) => {
         vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
-        console.log('vehicle.isFavorite: ', vehicle.isFavorite)
         cars[vehicle.id] = vehicle
+
         return cars
       }, {})
 

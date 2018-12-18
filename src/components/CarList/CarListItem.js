@@ -58,10 +58,10 @@ class CarListItem extends PureComponent {
 
         <div className={styles.priceChart}>
           <PriceChart
-            realPrice="16999"
-            minPrice="12680"
-            listPrice="17999"
-            fairMaxPrice="17750"
+            realPrice={16999}
+            minPrice={12680}
+            listPrice={17999}
+            fairMaxPrice={17750}
           />
         </div>
       </Link>
