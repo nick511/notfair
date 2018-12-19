@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PriceChart /> renders without crashing 1`] = `
+<div
+  className="component"
+>
+  <div
+    className="minPrice"
+  >
+    <div
+      className="label"
+    >
+      Min Price
+    </div>
+    <div
+      className="price"
+    >
+      $
+      12,680
+    </div>
+  </div>
+  <div
+    className="priceBar"
+  >
+    <div
+      className="barBox"
+    >
+      <div
+        className="bar"
+      >
+        <div
+          className="colorBar"
+          style={
+            Object {
+              "width": "95.31866892272983%",
+            }
+          }
+        />
+      </div>
+      <div
+        className="realPrice"
+        style={
+          Object {
+            "left": "81.19947358526038%",
+          }
+        }
+      >
+        <div
+          className="price"
+        >
+          $
+          16,999
+        </div>
+        <div
+          className="line"
+        />
+        <div
+          className="roundButton"
+        />
+      </div>
+      <div
+        className="fairMax"
+        style={
+          Object {
+            "left": "95.31866892272983%",
+          }
+        }
+      >
+        <div
+          className="line"
+        />
+        <div
+          className="offset"
+        >
+          <div
+            className="label"
+          >
+            Fair Program Max
+          </div>
+          <div
+            className="price"
+          >
+            $
+            17,750
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="listPrice"
+  >
+    <div
+      className="label"
+    >
+      List Price
+    </div>
+    <div
+      className="price"
+    >
+      $
+      17,999
+    </div>
+  </div>
+</div>
+`;

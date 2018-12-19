@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -24,6 +25,16 @@ class Home extends PureComponent {
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  carList: PropTypes.array.isRequired,
+  cars: PropTypes.object.isRequired,
+  hasMore: PropTypes.bool.isRequired,
+  actions: PropTypes.shape({
+    fetchCars: PropTypes.func.isRequired,
+    favoriteCar: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 const mapStateToProps = state => {

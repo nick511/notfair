@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarDetail /> renders without crashing 1`] = `
+<div
+  className="component"
+>
+  <div
+    className="favorite favorite"
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-heart"
+    />
+  </div>
+  <div
+    className="make"
+  >
+    2016
+     
+    Honda
+  </div>
+  <div
+    className="model"
+  >
+    Civic Sedan
+     
+    LX
+  </div>
+  <div
+    className="mileage"
+  >
+    <span
+      className="number"
+    >
+      35,292
+    </span>
+     Mi.
+  </div>
+  <div
+    className="payment"
+  >
+    <div
+      className="monthyPayment"
+    >
+      <label>
+        Monthy Pymt.
+      </label>
+      <div
+        className="price"
+      >
+        $
+        290
+      </div>
+    </div>
+    <div
+      className="startPayment"
+    >
+      <label>
+        Start Pymt.
+      </label>
+      <div
+        className="price"
+      >
+        $
+        900
+      </div>
+    </div>
+  </div>
+  <div
+    className="colorInfo"
+  >
+    <div
+      className="exterior"
+    >
+      <label>
+        Exterior Color
+      </label>
+      <div
+        className="color"
+      >
+        Metallic
+      </div>
+    </div>
+    <div
+      className="interior"
+    >
+      <label>
+        Interior Color
+      </label>
+      <div
+        className="color"
+      >
+        Black
+      </div>
+    </div>
+  </div>
+</div>
+`;

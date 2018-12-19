@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarList /> renders without crashing 1`] = `
+<div
+  className="component"
+>
+  <InfiniteScroll
+    element="div"
+    getScrollParent={null}
+    hasMore={false}
+    initialLoad={true}
+    isReverse={false}
+    loadMore={[MockFunction]}
+    loader={
+      <div
+        className="loader"
+      >
+        Loading ...
+      </div>
+    }
+    pageStart={0}
+    ref={null}
+    threshold={250}
+    useCapture={false}
+    useWindow={true}
+  >
+    <ErrorBoundary
+      key="19XFC2F59GE22767320160"
+    >
+      <CarListItem
+        car={
+          Object {
+            "id": "19XFC2F59GE2276732016",
+            "make": "Honda",
+            "mileage": 35292,
+            "model": "Civic Sedan",
+          }
+        }
+        favoriteCarAction={[MockFunction]}
+      />
+    </ErrorBoundary>
+  </InfiniteScroll>
+</div>
+`;

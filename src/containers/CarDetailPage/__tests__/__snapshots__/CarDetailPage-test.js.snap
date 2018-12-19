@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarDetailPage /> renders without crashing 1`] = `
+<div
+  className="component"
+>
+  <ErrorBoundary>
+    <CarGallary
+      images={Array []}
+    />
+  </ErrorBoundary>
+  <ErrorBoundary>
+    <CarDetail
+      car={
+        Object {
+          "id": "19XFC2F59GE2276732016",
+          "image_location_list": Array [],
+          "make": "Honda",
+          "mileage": 35292,
+          "model": "Civic Sedan",
+        }
+      }
+      favoriteCarAction={[MockFunction]}
+    />
+  </ErrorBoundary>
+</div>
+`;

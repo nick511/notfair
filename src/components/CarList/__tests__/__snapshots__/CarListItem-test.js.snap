@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarListItem /> renders without crashing 1`] = `
+<Link
+  className="component"
+  replace={false}
+  to="/vehicles/19XFC2F59GE2276732016"
+>
+  <div
+    className="image"
+  >
+    <img
+      alt=""
+      src="http://cdn-prod.prod.fair.engineering/vehicle-images/0640_001_png/MY2016/10846/10846_cc0640_001_BS.png"
+    />
+  </div>
+  <div
+    className="info"
+  >
+    <div
+      className="name"
+    >
+      2016
+       
+      Honda
+       
+      Civic Sedan
+    </div>
+    <div>
+      <span
+        className="price"
+      >
+        $
+        290
+      </span>
+      per mo.
+    </div>
+    <div
+      className="infoItem"
+    >
+      TRIM: 
+      LX
+    </div>
+    <div
+      className="infoItem"
+    >
+      MILES: 
+      35292
+    </div>
+    <div
+      className="infoItem"
+    >
+      Start Fee: $
+      900
+    </div>
+    <div
+      className="favorite favorite"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-heart"
+      />
+    </div>
+  </div>
+  <div
+    className="priceChart"
+  >
+    <PriceChart
+      fairMaxPrice={17750}
+      listPrice={17999}
+      minPrice={12680}
+      realPrice={16999}
+    />
+  </div>
+</Link>
+`;

@@ -16,9 +16,9 @@ class CarListItem extends PureComponent {
   render() {
     const { car } = this.props
 
-    if (!car) return null
-
-    const payment = car.product_financials ? car.product_financials[0] : null
+    const payment = Array.isArray(car.product_financials)
+      ? car.product_financials[0]
+      : null
 
     return (
       <Link to={`/vehicles/${car.id}`} className={styles.component}>
@@ -33,17 +33,23 @@ class CarListItem extends PureComponent {
             {car.model_year} {car.make} {car.model}
           </div>
 
-          <div>
-            <span className={styles.price}>
-              ${payment.monthly_payment_cents / 100}
-            </span>
-            per mo.
-          </div>
+          {payment && (
+            <div>
+              <span className={styles.price}>
+                ${payment.monthly_payment_cents / 100}
+              </span>
+              per mo.
+            </div>
+          )}
+
           <div className={styles.infoItem}>TRIM: {car.trim}</div>
           <div className={styles.infoItem}>MILES: {car.mileage}</div>
-          <div className={styles.infoItem}>
-            Start Fee: ${payment.start_fee_cents / 100}
-          </div>
+
+          {payment && (
+            <div className={styles.infoItem}>
+              Start Fee: ${payment.start_fee_cents / 100}
+            </div>
+          )}
 
           {/* Favorite button */}
           <div

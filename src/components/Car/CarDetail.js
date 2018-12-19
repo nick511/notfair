@@ -35,7 +35,9 @@ export class CarDetail extends Component {
         </div>
 
         {/* Mileage */}
-        <div className={styles.mileage}>{car.mileage.toLocaleString()} Mi.</div>
+        <div className={styles.mileage}>
+          <span className="number">{car.mileage.toLocaleString()}</span> Mi.
+        </div>
 
         {/* Payment info */}
         {payment && (

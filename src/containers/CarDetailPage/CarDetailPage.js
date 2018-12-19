@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -15,7 +16,7 @@ export class CarDetailPage extends PureComponent {
   }
 
   render() {
-    const { data: car, failed } = this.props.car
+    const { car, failed } = this.props
     const actions = this.props.actions
 
     if (failed === true) return <NotFound />
@@ -34,8 +35,17 @@ export class CarDetailPage extends PureComponent {
   }
 }
 
+CarDetailPage.propTypes = {
+  car: PropTypes.object,
+  failed: PropTypes.bool.isRequired,
+  actions: PropTypes.shape({
+    fetchCar: PropTypes.func.isRequired,
+    favoriteCar: PropTypes.func.isRequired,
+  }).isRequired,
+}
+
 const mapStateToProps = state => {
-  return { car: state.car }
+  return { car: state.car.data, failed: state.car.failed }
 }
 
 const mapDispatchToProps = dispatch => ({
