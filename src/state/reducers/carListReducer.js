@@ -35,6 +35,7 @@ const carListReducer = (state = initialState, action = {}) => {
       const page = action.meta.page
 
       action.payload.data.vehicles.forEach(vehicle => {
+        // Check if favorited
         vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
         cars[vehicle.id] = vehicle
         carIdList.push(vehicle.id)

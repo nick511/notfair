@@ -32,6 +32,8 @@ class CarGallary extends PureComponent {
             </div>
           ))}
         </Slider>
+
+        {/* Image page info */}
         <div className={styles.pageInfo}>
           {this.state.activeSlide} / {this.props.images.length}
         </div>

@@ -19,7 +19,9 @@ export class CarDetailPage extends PureComponent {
     const { car, failed } = this.props
     const actions = this.props.actions
 
+    // fetchCar failed show not found page
     if (failed === true) return <NotFound />
+
     if (car == null) return null
 
     return (

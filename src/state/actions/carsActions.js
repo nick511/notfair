@@ -19,6 +19,7 @@ export const fetchCar = (vin = '') => ({
 export const favoriteCar = (vin = '', isFavorite = true) => ({
   type: FAVORITE_CAR,
   payload: new Promise((resolve, reject) => {
+    // Using LocalStorage store favoriting data
     localStorage.setItem(vin, isFavorite)
 
     resolve({ vin, isFavorite })
