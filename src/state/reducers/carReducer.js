@@ -1,14 +1,14 @@
 import * as actions from '../actions/carsActions'
 import { _PENDING, _FULFILLED, _REJECTED } from 'utils/constants'
 
-const initialState = {
+export const initialState = {
   data: null,
   fetching: false,
   fetched: false,
   failed: false,
 }
 
-const carReducer = (state = initialState, action) => {
+const carReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case actions.FETCH_CAR + _PENDING:
       return {

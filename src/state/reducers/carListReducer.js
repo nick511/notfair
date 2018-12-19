@@ -1,7 +1,7 @@
 import * as actions from '../actions/carsActions'
 import { _PENDING, _FULFILLED, _REJECTED } from 'utils/constants'
 
-const initialState = {
+export const initialState = {
   carIdList: [],
   cars: {},
   fetching: false,
@@ -10,7 +10,7 @@ const initialState = {
   hasMore: true,
 }
 
-const carListReducer = (state = initialState, action) => {
+const carListReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case actions.FETCH_CAR_LIST + _PENDING:
       return {
