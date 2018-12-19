@@ -6,3 +6,5 @@ export const ENDPOINT_VEHICLE = '/vehicles/:vin'
 export const _PENDING = '_PENDING'
 export const _FULFILLED = '_FULFILLED'
 export const _REJECTED = '_REJECTED'
+
+export const LOG_ROCKET_ID = 'xw1zzt/notfair'

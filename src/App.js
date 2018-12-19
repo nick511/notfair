@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import LogRocket from 'logrocket'
 
 import './style/base.scss'
 import './App.scss'
@@ -9,6 +10,9 @@ import Header from './components/Header/Header'
 import Home from './containers/Home/Home'
 import CarDetailPage from './containers/CarDetailPage/CarDetailPage'
 import NotFound from './components/NotFound/NotFound'
+import { LOG_ROCKET_ID } from 'utils/constants'
+
+LogRocket.init(LOG_ROCKET_ID)
 
 export const Routes = () => (
   <Switch>

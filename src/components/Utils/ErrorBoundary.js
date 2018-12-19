@@ -1,4 +1,5 @@
 import { PureComponent } from 'react'
+import LogRocket from 'logrocket'
 
 class ErrorBoundary extends PureComponent {
   constructor(props) {
@@ -12,9 +13,7 @@ class ErrorBoundary extends PureComponent {
   }
 
   componentDidCatch(error, info) {
-    // Todo: add log to server
-    // console.log('error, info: ', error, info)
-    // logErrorToMyService(error, info)
+    LogRocket.captureException(error)
   }
 
   render() {

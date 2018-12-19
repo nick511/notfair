@@ -1,4 +1,5 @@
 import isPromise from 'is-promise'
+import LogRocket from 'logrocket'
 
 export default function errorMiddleware() {
   return next => action => {
@@ -20,8 +21,7 @@ export default function errorMiddleware() {
      */
 
     return next(action).catch(error => {
-      // Todo: handle error
-      // console.warn(error)
+      LogRocket.captureException(error)
       return error
     })
   }
