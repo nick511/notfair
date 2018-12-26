@@ -7,7 +7,7 @@ import * as actions from 'state/actions/carsActions'
 import ErrorBoundary from 'components/Utils/ErrorBoundary'
 import CarGallary from 'components/Car/CarGallary'
 import CarDetail from 'components/Car/CarDetail'
-import NotFound from 'components/NotFound/NotFound'
+import NotFound from 'components/commons/NotFound/NotFound'
 import styles from './CarDetailPage.module.scss'
 
 export class CarDetailPage extends PureComponent {

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import InfiniteScroll from 'react-infinite-scroller'
 
+import Loader from 'components/commons/Loader/Loader'
 import ErrorBoundary from 'components/Utils/ErrorBoundary'
 import CarListItem from 'components/CarList/CarListItem'
 import styles from './CarList.module.scss'
@@ -16,11 +17,7 @@ class CarList extends PureComponent {
           pageStart={0}
           loadMore={fetchCars}
           hasMore={hasMore}
-          loader={
-            <div className="loader" key="0">
-              Loading ...
-            </div>
-          }
+          loader={<Loader key="0" />}
         >
           {cars.allIds.map((id, idx) => (
             <ErrorBoundary key={id + idx}>
