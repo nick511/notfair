@@ -19,8 +19,8 @@ class CarGallary extends PureComponent {
 
   render() {
     return (
-      <div>
-        <Slider beforeChange={this._beforeChange}>
+      <div className={styles.component}>
+        <Slider className={styles.slider} beforeChange={this._beforeChange}>
           {this.props.images.map(image => (
             <div key={image}>
               <ReactImageFallback

@@ -1,4 +1,14 @@
+.component {
+  position: relative;
+  padding-top: calc(100% / (640 / 480));
+}
 
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 
 .mainImage {
   width: 100%;

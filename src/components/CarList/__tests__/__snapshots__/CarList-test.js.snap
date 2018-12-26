@@ -11,13 +11,7 @@ exports[`<CarList /> renders without crashing 1`] = `
     initialLoad={true}
     isReverse={false}
     loadMore={[MockFunction]}
-    loader={
-      <div
-        className="loader"
-      >
-        Loading ...
-      </div>
-    }
+    loader={<Loader />}
     pageStart={0}
     ref={null}
     threshold={250}

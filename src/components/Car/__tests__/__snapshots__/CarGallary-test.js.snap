@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CarGallary /> chages page number after sliding 1`] = `
-<div>
+<div
+  className="component"
+>
   <Slider
     beforeChange={[Function]}
+    className="slider"
   >
     <div
       key="http://cdn-prod.prod.fair.engineering/vehicle-images/0640_032_png/MY2016/10846/10846_cc0640_032_BS.png"
@@ -160,9 +163,12 @@ exports[`<CarGallary /> chages page number after sliding 1`] = `
 `;
 
 exports[`<CarGallary /> renders without crashing 1`] = `
-<div>
+<div
+  className="component"
+>
   <Slider
     beforeChange={[Function]}
+    className="slider"
   >
     <div
       key="http://cdn-prod.prod.fair.engineering/vehicle-images/0640_032_png/MY2016/10846/10846_cc0640_032_BS.png"
