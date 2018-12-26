@@ -1,6 +1,9 @@
 # NotFair car listing
 Demo: https://notfair.now.sh
 
+Storybook demo: https://notfair-storybook.now.sh
+
+
 <img src="https://raw.githubusercontent.com/nick511/notfair/master/screenshot.png"  />
 
 
@@ -25,10 +28,16 @@ To show testing coverage.
 yarn coverage
 ```
 
+Run storybook
+```sh
+yarn storybook
+```
+
 ---
 ## Notes
 * Using Sass and CSS modules (instead of CSS naming conventions, like BEM)
-* Using Jest/Enzyme for testing (most components are 100% covered)
+* Jest/Enzyme for testing (most components are covered)
+* Storybook for UI components
 * Add LogRocket service to log global, ErrorBoundary, errorMiddleware error messages
 
 
