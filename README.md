@@ -23,7 +23,7 @@ Build the app for production to the build folder.
 yarn build
 ```
 
-To show testing coverage.
+Show testing coverage.
 ```sh
 yarn coverage
 ```
@@ -33,14 +33,20 @@ Run storybook
 yarn storybook
 ```
 
+Run bundle analyzer
+```sh
+yarn analyze
+```
+
 ---
-## Notes
+## Highlights
 * Using Sass and CSS modules (instead of CSS naming conventions, like BEM)
+* Route-based code splitting
 * Jest/Enzyme for testing (most components are covered)
 * Storybook for UI components
-* Add LogRocket service to log global, ErrorBoundary, errorMiddleware error messages
+* Add LogRocket service to log error messages (including global, ErrorBoundary, errorMiddleware)
 
 
 ## Improvement
 * Use more efficient list component for car list (to deal large list)
-* Use code splitting with React Router
+* ~~Use code splitting with React Router~~
