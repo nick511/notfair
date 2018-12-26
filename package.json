@@ -27,7 +27,8 @@
     "coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build-storybook": "build-storybook -c .storybook -o build-storybook"
+    "build-storybook": "build-storybook -c .storybook -o build-storybook",
+    "analyze": "node analyze.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -63,6 +64,7 @@
     "jest-enzyme": "^7.0.1",
     "prettier": "^1.15.3",
     "redux-devtools-extension": "^2.13.7",
-    "storybook-addon-jsx": "^6.0.0"
+    "storybook-addon-jsx": "^6.0.0",
+    "webpack-bundle-analyzer": "^3.0.3"
   }
 }
