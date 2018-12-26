@@ -14,7 +14,7 @@ let state = null
 
 describe('carReducer', () => {
   beforeEach(() => {
-    state = carReducer()
+    state = carReducer(initialState, {})
   })
 
   it('returns initialState by default', () => {

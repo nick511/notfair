@@ -1,5 +1,6 @@
-import * as actions from '../actions/carsActions'
-import { _PENDING, _FULFILLED, _REJECTED } from 'utils/constants'
+import typeToReducer from 'type-to-reducer'
+
+import * as carActions from '../actions/carsActions'
 
 export const initialState = {
   data: null,
@@ -8,53 +9,56 @@ export const initialState = {
   failed: false,
 }
 
-const carReducer = (state = initialState, action = {}) => {
-  switch (action.type) {
-    case actions.FETCH_CAR + _PENDING:
-      return {
-        ...state,
-        data: null,
-        fetching: true,
-        fetched: false,
-        failed: false,
-      }
+const handleFetchCarAction = {
+  PENDING: (state, action) => ({
+    ...state,
+    data: null,
+    fetching: true,
+    fetched: false,
+    failed: false,
+  }),
+  REJECTED: (state, action) => ({
+    ...state,
+    fetching: false,
+    fetched: false,
+    failed: true,
+  }),
+  FULFILLED: (state, action) => {
+    const vehicle = action.payload.data.vehicle
+    vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
 
-    case actions.FETCH_CAR + _REJECTED:
-      return {
-        ...state,
-        fetching: false,
-        fetched: false,
-        failed: true,
-      }
-
-    case actions.FETCH_CAR + _FULFILLED:
-      const vehicle = action.payload.data.vehicle
-      vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
-
-      return {
-        ...state,
-        data: vehicle,
-        fetching: false,
-        fetched: true,
-        failed: false,
-      }
-
-    case actions.FAVORITE_CAR + _FULFILLED:
-      const { vin, isFavorite } = action.payload
-
-      // Don't update if not the same vin
-      if (!(state.data && vin === state.data.id)) {
-        return state
-      }
-
-      return {
-        ...state,
-        data: { ...state.data, isFavorite },
-      }
-
-    default:
-      return state
-  }
+    return {
+      ...state,
+      data: vehicle,
+      fetching: false,
+      fetched: true,
+      failed: false,
+    }
+  },
 }
+
+const handleFavoriteCarAction = {
+  FULFILLED: (state, action) => {
+    const { vin, isFavorite } = action.payload
+
+    // Don't update if can't find the car
+    if (!(state.data && vin === state.data.id)) {
+      return state
+    }
+
+    return {
+      ...state,
+      data: { ...state.data, isFavorite },
+    }
+  },
+}
+
+const carReducer = typeToReducer(
+  {
+    [carActions.FETCH_CAR]: handleFetchCarAction,
+    [carActions.FAVORITE_CAR]: handleFavoriteCarAction,
+  },
+  initialState,
+)
 
 export default carReducer
