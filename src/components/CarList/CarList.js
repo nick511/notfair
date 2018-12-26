@@ -8,7 +8,7 @@ import styles from './CarList.module.scss'
 
 class CarList extends PureComponent {
   render() {
-    const { carList, cars, hasMore, fetchCars, favoriteCarAction } = this.props
+    const { cars, hasMore, fetchCars, favoriteCarAction } = this.props
 
     return (
       <div className={styles.component}>
@@ -22,10 +22,10 @@ class CarList extends PureComponent {
             </div>
           }
         >
-          {carList.map((id, idx) => (
+          {cars.allIds.map((id, idx) => (
             <ErrorBoundary key={id + idx}>
               <CarListItem
-                car={cars[id]}
+                car={cars.byId[id]}
                 favoriteCarAction={favoriteCarAction}
               />
             </ErrorBoundary>
@@ -37,8 +37,10 @@ class CarList extends PureComponent {
 }
 
 CarList.propTypes = {
-  carList: PropTypes.array.isRequired,
-  cars: PropTypes.object.isRequired,
+  cars: PropTypes.shape({
+    allIds: PropTypes.array.isRequired,
+    byId: PropTypes.object.isRequired,
+  }),
   hasMore: PropTypes.bool.isRequired,
   fetchCars: PropTypes.func.isRequired,
   favoriteCarAction: PropTypes.func.isRequired,

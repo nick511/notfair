@@ -2,8 +2,10 @@ import * as actions from '../actions/carsActions'
 import { _PENDING, _FULFILLED, _REJECTED } from 'utils/constants'
 
 export const initialState = {
-  carIdList: [],
-  cars: {},
+  cars: {
+    allIds: [],
+    byId: {},
+  },
   fetching: false,
   fetched: false,
   failed: false,
@@ -30,21 +32,20 @@ const carListReducer = (state = initialState, action = {}) => {
       }
 
     case actions.FETCH_CAR_LIST + _FULFILLED:
-      const cars = { ...state.cars }
-      const carIdList = [...state.carIdList]
+      const allIds = [...state.cars.allIds]
+      const byId = { ...state.cars.byId }
       const page = action.meta.page
 
       action.payload.data.vehicles.forEach(vehicle => {
         // Check if favorited
         vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
-        cars[vehicle.id] = vehicle
-        carIdList.push(vehicle.id)
+        byId[vehicle.id] = vehicle
+        allIds.push(vehicle.id)
       })
 
       return {
         ...state,
-        carIdList,
-        cars,
+        cars: { allIds, byId },
         fetching: false,
         fetched: true,
         failed: false,
@@ -53,7 +54,7 @@ const carListReducer = (state = initialState, action = {}) => {
 
     case actions.FAVORITE_CAR + _FULFILLED:
       const { vin, isFavorite } = action.payload
-      const car = state.cars[vin]
+      const car = state.cars.byId[vin]
 
       if (!car) {
         return state
@@ -61,7 +62,13 @@ const carListReducer = (state = initialState, action = {}) => {
 
       return {
         ...state,
-        cars: { ...state.cars, [vin]: { ...car, isFavorite } },
+        cars: {
+          ...state.cars,
+          byId: {
+            ...state.cars.byId,
+            [vin]: { ...car, isFavorite },
+          },
+        },
       }
 
     default:

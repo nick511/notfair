@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
 import styles from './CarDetail.module.scss'
 
-export class CarDetail extends Component {
+export class CarDetail extends PureComponent {
   _favoriteCar = () => {
     const { favoriteCarAction, car } = this.props
     favoriteCarAction(car.id, !car.isFavorite)

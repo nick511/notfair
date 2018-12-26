@@ -9,8 +9,10 @@ describe('carListReducer', () => {
   }
   const stateWithCar = {
     ...initialState,
-    carIdList: [car.id],
-    cars: { [car.id]: car },
+    cars: {
+      allIds: [car.id],
+      byId: { [car.id]: car },
+    },
   }
   let state = null
 
@@ -59,11 +61,11 @@ describe('carListReducer', () => {
     state = carListReducer(state, action)
 
     // check car list size
-    expect(state.carIdList.length).toEqual(1)
+    expect(state.cars.allIds.length).toEqual(1)
     // check if car exist
-    expect(state.cars[car.id]).toBeDefined()
+    expect(state.cars.byId[car.id]).toBeDefined()
     // check if isFavorite changed
-    expect(state.cars[car.id].isFavorite).toEqual(true)
+    expect(state.cars.byId[car.id].isFavorite).toEqual(true)
   })
 
   it('changes isFavorite state of car by FAVORITE_CAR action', () => {
@@ -76,7 +78,7 @@ describe('carListReducer', () => {
     }
 
     const newState = carListReducer(stateWithCar, action)
-    expect(newState.cars[car.id].isFavorite).toEqual(true)
+    expect(newState.cars.byId[car.id].isFavorite).toEqual(true)
   })
 
   it('should return original state if the vin in FAVORITE_CAR action is invalid', () => {

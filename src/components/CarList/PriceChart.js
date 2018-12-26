@@ -4,16 +4,21 @@ import PropTypes from 'prop-types'
 import styles from './PriceChart.module.scss'
 
 function PriceChart({ realPrice, minPrice, listPrice, fairMaxPrice }) {
-  const fairMaxPercent =
-    ((fairMaxPrice - minPrice) / (listPrice - minPrice)) * 100
-  const realPricePercent =
-    ((realPrice - minPrice) / (listPrice - minPrice)) * 100
+  const getPricePercentage = price => {
+    let pcercent = ((price - minPrice) / (listPrice - minPrice)) * 100
+    return Math.min(Math.max(parseInt(pcercent), 0), 100) // limit number between 0-100
+  }
+
+  const formatCurrency = number => '$' + parseInt(number, 10).toLocaleString()
+
+  const realPricePercent = getPricePercentage(realPrice)
+  const fairMaxPercent = getPricePercentage(fairMaxPrice)
 
   return (
     <div className={styles.component}>
       <div className={styles.minPrice}>
         <div className={styles.label}>Min Price</div>
-        <div className={styles.price}>${minPrice.toLocaleString()}</div>
+        <div className={styles.price}>{formatCurrency(minPrice)}</div>
       </div>
 
       <div className={styles.priceBar}>
@@ -28,7 +33,7 @@ function PriceChart({ realPrice, minPrice, listPrice, fairMaxPrice }) {
             className={styles.realPrice}
             style={{ left: `${realPricePercent}%` }}
           >
-            <div className={styles.price}>${realPrice.toLocaleString()}</div>
+            <div className={styles.price}>{formatCurrency(realPrice)}</div>
             <div className={styles.line} />
             <div className={styles.roundButton} />
           </div>
@@ -39,9 +44,7 @@ function PriceChart({ realPrice, minPrice, listPrice, fairMaxPrice }) {
             <div className={styles.line} />
             <div className={styles.offset}>
               <div className={styles.label}>Fair Program Max</div>
-              <div className={styles.price}>
-                ${fairMaxPrice.toLocaleString()}
-              </div>
+              <div className={styles.price}>{formatCurrency(fairMaxPrice)}</div>
             </div>
           </div>
         </div>
@@ -49,7 +52,7 @@ function PriceChart({ realPrice, minPrice, listPrice, fairMaxPrice }) {
 
       <div className={styles.listPrice}>
         <div className={styles.label}>List Price</div>
-        <div className={styles.price}>${listPrice.toLocaleString()}</div>
+        <div className={styles.price}>{formatCurrency(listPrice)}</div>
       </div>
     </div>
   )

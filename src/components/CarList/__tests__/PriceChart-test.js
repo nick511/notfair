@@ -31,8 +31,9 @@ describe('<PriceChart />', () => {
 
   it('produces correct percentage', () => {
     const { minPrice, listPrice, fairMaxPrice } = props
-    const fairMaxPercent =
-      ((fairMaxPrice - minPrice) / (listPrice - minPrice)) * 100
+    const fairMaxPercent = parseInt(
+      ((fairMaxPrice - minPrice) / (listPrice - minPrice)) * 100,
+    )
     expect(wrapper.find('.fairMax').prop('style').left).toEqual(
       fairMaxPercent + '%',
     )

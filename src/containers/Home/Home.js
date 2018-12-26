@@ -10,12 +10,12 @@ import './home.scss'
 
 class Home extends PureComponent {
   render() {
-    const { carList, cars, hasMore, actions } = this.props
+    const { cars, hasMore, actions } = this.props
+
     return (
       <div className="home">
         <ErrorBoundary>
           <CarList
-            carList={carList}
             cars={cars}
             hasMore={hasMore}
             fetchCars={actions.fetchCars}
@@ -28,8 +28,10 @@ class Home extends PureComponent {
 }
 
 Home.propTypes = {
-  carList: PropTypes.array.isRequired,
-  cars: PropTypes.object.isRequired,
+  cars: PropTypes.shape({
+    allIds: PropTypes.array.isRequired,
+    byId: PropTypes.object.isRequired,
+  }),
   hasMore: PropTypes.bool.isRequired,
   actions: PropTypes.shape({
     fetchCars: PropTypes.func.isRequired,

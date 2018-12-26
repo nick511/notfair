@@ -5,13 +5,15 @@ import CarList from '../CarList'
 
 describe('<CarList />', () => {
   let wrapper = null
-  const carList = ['19XFC2F59GE2276732016']
   const cars = {
-    '19XFC2F59GE2276732016': {
-      id: '19XFC2F59GE2276732016',
-      make: 'Honda',
-      mileage: 35292,
-      model: 'Civic Sedan',
+    allIds: ['19XFC2F59GE2276732016'],
+    byId: {
+      '19XFC2F59GE2276732016': {
+        id: '19XFC2F59GE2276732016',
+        make: 'Honda',
+        mileage: 35292,
+        model: 'Civic Sedan',
+      },
     },
   }
   const hasMore = false
@@ -21,7 +23,6 @@ describe('<CarList />', () => {
   beforeEach(() => {
     wrapper = shallow(
       <CarList
-        carList={carList}
         cars={cars}
         hasMore={hasMore}
         fetchCars={fetchCars}
