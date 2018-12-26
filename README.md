@@ -41,7 +41,7 @@ yarn analyze
 ---
 ## Highlights
 * Using Sass and CSS modules (instead of CSS naming conventions, like BEM)
-* Route-based code splitting
+* Route-based code splitting (by React.lazy)
 * Jest/Enzyme for testing (most components are covered)
 * Storybook for UI components
 * Add LogRocket service to log error messages (including global, ErrorBoundary, errorMiddleware)

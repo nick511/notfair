@@ -20,6 +20,8 @@ const CarDetailPage = lazy(() =>
   import('containers/CarDetailPage/CarDetailPage'),
 )
 
+// There's a failed prop type warning, just ignore it now.
+// Fixed in next version(react-router-dom@4.4.0)
 export const Routes = () => (
   <Suspense fallback={<Loader style={{ height: '200px' }} />}>
     <Switch>
