@@ -40,6 +40,7 @@ yarn analyze
 
 ---
 ## Highlights
+* Integrate immer.js for immutable state
 * Using Sass and CSS modules (instead of CSS naming conventions, like BEM)
 * Route-based code splitting (by React.lazy)
 * Jest/Enzyme for testing (most components are covered)

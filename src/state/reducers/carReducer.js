@@ -1,3 +1,4 @@
+import produce from 'immer'
 import typeToReducer from 'type-to-reducer'
 
 import * as carActions from '../actions/carsActions'
@@ -46,19 +47,20 @@ const handleFavoriteCarAction = {
       return state
     }
 
-    return {
-      ...state,
-      data: { ...state.data, isFavorite },
-    }
+    state.data.isFavorite = isFavorite
+    return state
   },
 }
 
-const carReducer = typeToReducer(
-  {
-    [carActions.FETCH_CAR]: handleFetchCarAction,
-    [carActions.FAVORITE_CAR]: handleFavoriteCarAction,
-  },
-  initialState,
+// Use immer here, just mutate the state ;)
+const carReducer = produce(
+  typeToReducer(
+    {
+      [carActions.FETCH_CAR]: handleFetchCarAction,
+      [carActions.FAVORITE_CAR]: handleFavoriteCarAction,
+    },
+    initialState,
+  ),
 )
 
 export default carReducer

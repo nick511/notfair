@@ -1,3 +1,4 @@
+import produce from 'immer'
 import typeToReducer from 'type-to-reducer'
 
 import * as carsActions from '../actions/carsActions'
@@ -28,25 +29,23 @@ const handleFetchCarListAction = {
     hasMore: false,
   }),
   FULFILLED: (state, action) => {
-    const allIds = [...state.cars.allIds]
-    const byId = { ...state.cars.byId }
+    const allIds = state.cars.allIds
+    const byId = state.cars.byId
     const page = action.meta.page
 
     action.payload.data.vehicles.forEach(vehicle => {
       // Check if favorited
       vehicle.isFavorite = localStorage.getItem(vehicle.id) === 'true'
-      byId[vehicle.id] = vehicle
+
+      // Add car
       allIds.push(vehicle.id)
+      byId[vehicle.id] = vehicle
     })
 
-    return {
-      ...state,
-      cars: { allIds, byId },
-      fetching: false,
-      fetched: true,
-      failed: false,
-      hasMore: page < 10, // Fake total page here since API always return page 1
-    }
+    state.fetching = state.failed = false
+    state.fetched = true
+    state.hasMore = page < 10 // Fake total page here since API always return page 1
+    return state
   },
 }
 
@@ -59,25 +58,20 @@ const handleFavoriteCarAction = {
       return state
     }
 
-    return {
-      ...state,
-      cars: {
-        ...state.cars,
-        byId: {
-          ...state.cars.byId,
-          [vin]: { ...car, isFavorite },
-        },
-      },
-    }
+    car.isFavorite = isFavorite
+    return state
   },
 }
 
-const carListReducer = typeToReducer(
-  {
-    [carsActions.FETCH_CAR_LIST]: handleFetchCarListAction,
-    [carsActions.FAVORITE_CAR]: handleFavoriteCarAction,
-  },
-  initialState,
+// Use immer here, just mutate the state ;)
+const carListReducer = produce(
+  typeToReducer(
+    {
+      [carsActions.FETCH_CAR_LIST]: handleFetchCarListAction,
+      [carsActions.FAVORITE_CAR]: handleFavoriteCarAction,
+    },
+    initialState,
+  ),
 )
 
 export default carListReducer
